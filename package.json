@@ -1,0 +1,33 @@
+{
+  "name": "webpack-test",
+  "version": "1.0.0",
+  "description": "webpack-test",
+  "scripts": {
+    "build:shared": "webpack --config shared/webpack.config.js",
+    "build:app1": "webpack --config app1/webpack.config.js",
+    "build:app2": "webpack --config app2/webpack.config.js",
+    "build:apps": "npm run build:app1 && npm run build:app2",
+    "start": "node server.js"
+  },
+  "author": "Sankaranarayanan Viswanathan",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.0.0",
+    "babel-preset-env": "^1.5.2",
+    "babel-preset-react": "^6.24.1",
+    "clean-webpack-plugin": "^0.1.16",
+    "express": "^4.15.3",
+    "html-webpack-include-assets-plugin": "0.0.5",
+    "html-webpack-plugin": "^2.28.0",
+    "webpack": "^2.6.1"
+  },
+  "dependencies": {
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-redux": "^5.0.5",
+    "redux": "^3.6.0",
+    "redux-logger": "^3.0.6"
+  }
+}
