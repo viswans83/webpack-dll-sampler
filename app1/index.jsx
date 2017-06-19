@@ -4,21 +4,7 @@ import { connect, Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'
 import { createLogger } from 'redux-logger'
 
-let App = function(props) {
-  return (
-    <div style={{ border: '1px black solid', width: '200px', height: '200px' }}>
-      <h5>App One</h5>
-      <div>Value: { props.value }</div>
-      <div>
-        <button onClick={props.increment}>+</button>
-        <button onClick={props.decrement}>-</button>
-      </div>
-      <div>
-        <a href="/app2">Visit App 2</a>
-      </div>
-    </div>
-  )
-}
+import { Counter } from '../shared'
 
 let AppConnected = connect(
   function(number) {
@@ -32,7 +18,7 @@ let AppConnected = connect(
       decrement: () => dispatch({ type: 'DEC' })
     }
   }
-)(App)
+)(Counter)
 
 let reducer = function(state = 0, action) {
   switch(action.type) {
@@ -48,7 +34,7 @@ let store = createStore(reducer, applyMiddleware(logger))
 
 render(
   <Provider store={store}>
-    <AppConnected />
+    <AppConnected color="black" heading="App One" link="/app2" />
   </Provider>
   , document.getElementById('root')
 )
